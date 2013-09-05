@@ -62,6 +62,13 @@ CCSprite *ship2;
     //Create a point, pos, by asking input (the touch processor), where there has been a touch
     CGPoint pos = [input locationOfAnyTouchInPhase:KKTouchPhaseBegan];
     
+    //input will return 0,0 if there has been no touch.
+    if (pos.x != 0 && pos.y != 0)
+    {
+        //Tells the ship to take 1 second to move to where you tapped
+        [ship2 runAction: [CCMoveTo actionWithDuration:1 position:pos]];
+    }
+    
     
 }
 @end
